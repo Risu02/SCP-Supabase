@@ -1,0 +1,1 @@
+AI was used in the creation of this assessment, mainly on the CSS and Design of the website
