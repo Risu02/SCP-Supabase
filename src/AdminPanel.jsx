@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom' // Added Link import
 import { supabase } from './supabase'
 
 const CLASS_OPTIONS = ['Safe', 'Euclid', 'Keter', 'Thaumiel', 'Apollyon', 'Neutralized']
@@ -107,9 +108,16 @@ export default function AdminPanel() {
 
   return (
     <section className="admin-wrapper">
-      <div className="admin-header">
-        <h1 style={{ textAlign: 'left', marginBottom: 0 }}>Admin Panel</h1>
-        <span className="record-count">{scps.length} RECORD{scps.length !== 1 ? 'S' : ''} ON FILE</span>
+      <div className="admin-header" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: '16px' }}>
+          <h1 style={{ textAlign: 'left', marginBottom: 0 }}>Admin Panel</h1>
+          <span className="record-count">{scps.length} RECORD{scps.length !== 1 ? 'S' : ''} ON FILE</span>
+        </div>
+        
+        {/* ── Return to Menu Button ── */}
+        <Link to="/" className="btn secondary" style={{ textDecoration: 'none' }}>
+          ← Return to Menu
+        </Link>
       </div>
       <p className="muted" style={{ textAlign: 'left', marginBottom: '28px' }}>
         Manage SCP subject entries — create, update, or expunge records.
